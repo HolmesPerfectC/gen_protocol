@@ -1,0 +1,1233 @@
+car_type: gw
+protocols:
+  1800b0e3:
+    id: 1800b0e3
+    name: acu_gw03_1800b0e3
+    protocol_type: report
+    sender: ACU
+    vars:
+    - bit: 0
+      description: ''
+      enum: {0: DOOR_OPEN_CLOSE_REQUEST_RESERVED, 1: DOOR_OPEN_CLOSE_REQUEST_OPENDOOR,
+        2: DOOR_OPEN_CLOSE_REQUEST_CLOSEDOOR, 3: DOOR_OPEN_CLOSE_REQUEST_RESERVED_1}
+      is_signed_var: false
+      len: 2
+      name: Door_Open_Close_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: "\xB5\u017A"
+      enum: {0: POWER_OFF_NO_ACTION, 1: POWER_OFF_POWER_OFF_SIGNAL}
+      is_signed_var: false
+      len: 1
+      name: Power_off
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  1800e0a2:
+    id: 1800e0a2
+    name: gw_acu01_1800e0a2
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 1
+      description: "DCU\u03F5\u0373\u05F4\u032C"
+      enum: {0: DCU_SYSTEM_STATUS_RESERVED, 1: DCU_SYSTEM_STATUS_NORMAL, 2: DCU_SYSTEM_STATUS_FAULT,
+        3: DCU_SYSTEM_STATUS_RESERVED1}
+      is_signed_var: false
+      len: 2
+      name: DCU_System_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u017F\u05F4\u032C"
+      enum: {0: DCU_DOOR_STATUS_RESERVED, 1: DCU_DOOR_STATUS_OPEN, 2: DCU_DOOR_STATUS_CLOSE,
+        3: DCU_DOOR_STATUS_RESERVED1}
+      is_signed_var: false
+      len: 2
+      name: DCU_Door_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  18f40010:
+    id: 18f40010
+    name: gw_acu03_18f40010
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 47
+      description: ''
+      enum: {300: EHB_DTC_NO_TROUBLE, 306: EHB_DTC_BRAKE_COMMAND_ABNORMAL_WARNING,
+        307: EHB_DTC_CURRENT_SENSOR_FAILURE, 308: EHB_DTC_TEMPERATURE_SENSOR_FAILURE,
+        309: EHB_DTC_EHB_OVERTEMPERATURE_ABNORMAL, 310: EHB_DTC_EHB_POWER_SUPPLY_ABNORMAL,
+        311: EHB_DTC_PEDAL_DISPLACE_SENSOR_FAILURE, 312: EHB_DTC_EHB_POWER_SUPPLY_FAILURE,
+        313: EHB_DTC_ECU_POWER_SUPPLY_FAILURE, 314: EHB_DTC_DRIVE_AXLE_FAILURE, 315: EHB_DTC_MOTOR_FAILURE,
+        316: EHB_DTC_CAN_NODE_LOST, 317: EHB_DTC_LEAKAGE_FAULT}
+      is_signed_var: false
+      len: 8
+      name: EHB_DTC
+      offset: 300.0
+      order: motorola
+      physical_range: '[306|317]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 0
+      description: "EHB\u05F4\u032C"
+      enum: {0: EHB_STATUS_NOTACTIVE, 1: EHB_STATUS_ACTIVE}
+      is_signed_var: false
+      len: 1
+      name: EHB_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "\u05E4\u01B6"
+      enum: {0: PARKING_BRAKE_REQUEST_PARKINGBRAKENOTREQUESTED, 1: PARKING_BRAKE_REQUEST_PARKINGBRAKEREQUESTED}
+      is_signed_var: false
+      len: 1
+      name: Parking_Brake_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "\u01F0\u02B5\u01B6\u04BA\u0479", is_signed_var: false,
+      len: 8, name: Actual_Pressure, offset: 0.0, order: motorola, physical_range: '[0|100]',
+      physical_unit: '', precision: 1.0, type: int}
+    - bit: 23
+      description: "\u01B6\u05F4\u032C"
+      enum: {1: BRAKE_CONDITION_MANUALBRAKECONDITION, 2: BRAKE_CONDITION_AUTOBRAKECONDITION,
+        3: BRAKE_CONDITION_MANUALINTERVENTIONCONDITION}
+      is_signed_var: false
+      len: 2
+      name: Brake_Condition
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, description: "\u01B6\u0324\u5FEA", is_signed_var: false, len: 8, name: Brake_Pedal_Travel,
+      offset: 0.0, order: motorola, physical_range: '[0|100]', physical_unit: '%',
+      precision: 1.0, type: int}
+    - bit: 35
+      description: "EHB\u03F5\u023C"
+      enum: {0: EHB_FAULT_LEVEL_NO_TROUBLE, 1: EHB_FAULT_LEVEL_FIRST_LEVEL_FAILURE,
+        2: EHB_FAULT_LEVEL_SECONDARY_FAILURE, 3: EHB_FAULT_LEVEL_LEVEL_3_FAILURE,
+        4: EHB_FAULT_LEVEL_LEVEL_4_FAILURE}
+      is_signed_var: false
+      len: 4
+      name: EHB_Fault_Level
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 55, description: '', is_signed_var: false, len: 4, name: Message_Counter_EHB,
+      offset: 0.0, order: motorola, physical_range: '[0|15]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: Message_check_sum_EHB,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  18f53c0c:
+    id: 18f53c0c
+    name: gw_acu04_18f53c0c
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 47
+      description: ''
+      enum: {300: EPB_DTC_NO_FAILURE, 304: EPB_DTC_EPB1_FAILURE}
+      is_signed_var: false
+      len: 8
+      name: EPB_DTC
+      offset: 300.0
+      order: motorola
+      physical_range: '[300|304]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "\u05E4\u05F4\u032C"
+      enum: {0: EPB_PARK_LAMP_STATE_OFF, 1: EPB_PARK_LAMP_STATE_ON, 2: EPB_PARK_LAMP_STATE_BLINKINGA,
+        3: EPB_PARK_LAMP_STATE_BLINKINGB}
+      is_signed_var: false
+      len: 2
+      name: EPB_Park_Lamp_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u03F5\u05F4\u032C"
+      enum: {0: EPB_WARNING_LAMP_STATE_OFF, 1: EPB_WARNING_LAMP_STATE_ON, 2: EPB_WARNING_LAMP_STATE_BLINKINGA,
+        3: EPB_WARNING_LAMP_STATE_BLINKINGB}
+      is_signed_var: false
+      len: 2
+      name: EPB_Warning_Lamp_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: "EPB\u05F4\u032C"
+      enum: {0: EPB_SWITCH_STATE_NEUTRAL, 1: EPB_SWITCH_STATE_RELEASE, 2: EPB_SWITCH_STATE_APPLY,
+        3: EPB_SWITCH_STATE_INVALID}
+      is_signed_var: false
+      len: 2
+      name: EPB_Switch_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: "\u0272"
+      enum: {0: BRAKE_LIGHTS_REQUEST_NOREQUEST, 1: BRAKE_LIGHTS_REQUEST_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Brake_Lights_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      enum: {0: DECELERATION_REQUEST_STATUS_NOTREQUEST, 1: DECELERATION_REQUEST_STATUS_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Deceleration_Request_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "ESP\u0676", is_signed_var: false, len: 12, name: Deceleration_Request,
+      offset: -20.48, order: motorola, physical_range: '[0|4095]', physical_unit: m/s^2,
+      precision: 0.01, type: double}
+    - {bit: 19, description: "ESP\u0423", is_signed_var: false, len: 12, name: Deceleration_Request_Check,
+      offset: 0.0, order: motorola, physical_range: '[0|4095]', physical_unit: '',
+      precision: 1.0, type: int}
+    - bit: 34
+      description: "EPB_\u03F5\u0373\u05F4\u032C"
+      enum: {0: EPB_SYSTEM_STATUS_RELEASED, 1: EPB_SYSTEM_STATUS_APPLIED, 2: EPB_SYSTEM_STATUS_RELEASING,
+        3: EPB_SYSTEM_STATUS_FAULTSTOPANDNOTSURESTATE, 4: EPB_SYSTEM_STATUS_APPLYING,
+        5: EPB_SYSTEM_STATUS_DISENGAGED}
+      is_signed_var: false
+      len: 3
+      name: EPB_System_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 36
+      description: "EPB\u0123\u02BD"
+      enum: {1: EPB_CONTROL_MODEL_MANUAL_MODE, 2: EPB_CONTROL_MODEL_AUTOMATIC_MODE}
+      is_signed_var: false
+      len: 2
+      name: EPB_Control_Model
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 55, description: '', is_signed_var: false, len: 4, name: Message_Counter_EPB,
+      offset: 0.0, order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: Message_check_sum_EPB,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  18f63c0c:
+    id: 18f63c0c
+    name: gw_acu07_18f63c0c
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 47
+      description: ''
+      enum: {300: EPB_DTC_NO_FAILURE, 305: EPB_DTC_EPB2_FAILURE}
+      is_signed_var: false
+      len: 8
+      name: EPB_DTC
+      offset: 300.0
+      order: motorola
+      physical_range: '[300|305]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "\u05E4\u05F4\u032C"
+      enum: {0: EPB_PARK_LAMP_STATE_OFF, 1: EPB_PARK_LAMP_STATE_ON, 2: EPB_PARK_LAMP_STATE_BLINKINGA,
+        3: EPB_PARK_LAMP_STATE_BLINKINGB}
+      is_signed_var: false
+      len: 2
+      name: EPB_Park_Lamp_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u03F5\u05F4\u032C"
+      enum: {0: EPB_WARNING_LAMP_STATE_OFF, 1: EPB_WARNING_LAMP_STATE_ON, 2: EPB_WARNING_LAMP_STATE_BLINKINGA,
+        3: EPB_WARNING_LAMP_STATE_BLINKINGB}
+      is_signed_var: false
+      len: 2
+      name: EPB_Warning_Lamp_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: "EPB\u05F4\u032C"
+      enum: {0: EPB_SWITCH_STATE_NEUTRAL, 1: EPB_SWITCH_STATE_RELEASE, 2: EPB_SWITCH_STATE_APPLY,
+        3: EPB_SWITCH_STATE_INVALID}
+      is_signed_var: false
+      len: 2
+      name: EPB_Switch_State
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: "\u0272"
+      enum: {0: BRAKE_LIGHTS_REQUEST_NOREQUEST, 1: BRAKE_LIGHTS_REQUEST_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Brake_Lights_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      enum: {0: DECELERATION_REQUEST_STATUS_NOREQUEST, 1: DECELERATION_REQUEST_STATUS_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Deceleration_Request_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "ESP\u0676", is_signed_var: false, len: 12, name: Deceleration_Request,
+      offset: -20.48, order: motorola, physical_range: '[0|4095]', physical_unit: m/s^2,
+      precision: 0.01, type: double}
+    - {bit: 19, description: "ESP\u0423", is_signed_var: false, len: 12, name: Deceleration_Request_Check,
+      offset: 0.0, order: motorola, physical_range: '[0|4095]', physical_unit: '',
+      precision: 1.0, type: int}
+    - bit: 34
+      description: "EPB_\u03F5\u0373\u05F4\u032C"
+      enum: {0: EPB_SYSTEM_STATUS_RELEASED, 1: EPB_SYSTEM_STATUS_APPLIED, 2: EPB_SYSTEM_STATUS_RELEASING,
+        3: EPB_SYSTEM_STATUS_FAULTSTOPANDNOTSURESTATE, 4: EPB_SYSTEM_STATUS_APPLYING,
+        5: EPB_SYSTEM_STATUS_DISENGAGED}
+      is_signed_var: false
+      len: 3
+      name: EPB_System_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 36
+      description: "EPB\u0123\u02BD"
+      enum: {1: EPB_CONTROL_MODEL_MANUAL_MODE, 2: EPB_CONTROL_MODEL_AUTOMATIC_MODE}
+      is_signed_var: false
+      len: 2
+      name: EPB_Control_Model
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 55, description: '', is_signed_var: false, len: 4, name: Message_Counter_EPB,
+      offset: 0.0, order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: Message_check_sum_EPB,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  18fbff10:
+    id: 18fbff10
+    name: gw_acu02_18fbff10
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 0
+      description: "\u01B6\u05B8\uCCE3"
+      enum: {0: BRAKING_REQUEST_WARNING_NORMAL, 1: BRAKING_REQUEST_WARNING_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Braking_Request_Warning
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: ''
+      enum: {0: CURRENT_SENSOR_FAULT_NORMAL, 1: CURRENT_SENSOR_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Current_Sensor_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\xB6\u0234"
+      enum: {0: NTC_FAULT_NORMAL, 1: NTC_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: NTC_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: "EHB\uCCE3"
+      enum: {0: EHB_OVER_TEMP_WARNING_NORMAL, 1: EHB_OVER_TEMP_WARNING_FAULT}
+      is_signed_var: false
+      len: 1
+      name: EHB_Over_Temp_Warning
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: "EHB\uCCE3"
+      enum: {0: EHB_POWER_SUPPLY_WARNING_NORMAL, 1: EHB_POWER_SUPPLY_WARNING_FAULT}
+      is_signed_var: false
+      len: 1
+      name: EHB_Power_Supply_Warning
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 6
+      description: "\u0324\u03BB\u01B41"
+      enum: {0: PEDAL_TRAVEL_SENSOR_FAULT_LV1_NORMAL, 1: PEDAL_TRAVEL_SENSOR_FAULT_LV1_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Pedal_Travel_Sensor_Fault_Lv1
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 9
+      description: EHB
+      enum: {0: EHB_POWER_SUPPLY_FAULT_NORMAL, 1: EHB_POWER_SUPPLY_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: EHB_Power_Supply_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 10
+      description: ECU
+      enum: {0: ECU_POWER_SUPPLY_FAULT_NORMAL, 1: ECU_POWER_SUPPLY_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: ECU_Power_Supply_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 11
+      description: "\u0179"
+      enum: {0: POWER_DRIVER_FAULT_NORMAL, 1: POWER_DRIVER_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Power_Driver_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 12
+      description: ''
+      enum: {0: MOTOR_FAULT_NORMAL, 1: MOTOR_FAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Motor_Fault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 13
+      description: "CAN\u06B5\u3DAA\u02A7"
+      enum: {0: CAN_BUSOFF_NORMAL, 1: CAN_BUSOFF_FAULT}
+      is_signed_var: false
+      len: 1
+      name: Can_BusOff
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      description: "\xA9\u04BA"
+      enum: {0: FLUIDLEAKAGEFAULT_NORMAL, 1: FLUIDLEAKAGEFAULT_FAULT}
+      is_signed_var: false
+      len: 1
+      name: FluidLeakageFault
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  18fe05fb:
+    id: 18fe05fb
+    name: gw_acu14_18fe05fb
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - {bit: 7, description: "\u0368\u05BE\u03B3", is_signed_var: false, len: 32, name: Traffic_Light_Pos_Lat,
+      offset: 0.0, order: motorola, physical_range: '[0|4294967295]', physical_unit: '',
+      precision: 1.0, type: int}
+  18fe06fb:
+    id: 18fe06fb
+    name: gw_acu10_18fe06fb
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - {bit: 63, is_signed_var: true, len: 8, name: Message_check_sum_GW, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: true, len: 4, name: Message_Counter_GW, offset: 0.0,
+      order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - bit: 2
+      description: "\u01F0\u02BB\u0123\u02BD/\u05F4\u032C"
+      enum: {0: DRIVE_MOD_STA_MANUAL_DRIVING_MODE, 1: DRIVE_MOD_STA_AUTOPILOT_MODE,
+        2: DRIVE_MOD_STA_HANDLE_CONTROL_DRIVING_MODE, 3: DRIVE_MOD_STA_REMOTE_CONTROL_DRIVING_MODE,
+        4: DRIVE_MOD_STA_RESERVED, 5: DRIVE_MOD_STA_RESERVED1, 6: DRIVE_MOD_STA_RESERVED2}
+      is_signed_var: false
+      len: 3
+      name: Drive_Mod_sta
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u0123\u02BD\u043B"
+      enum: {0: AUTODRIVING_ON_REQUEST_NO_REQUEST, 1: AUTODRIVING_ON_REQUEST_AUTODRIVING_ON_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Autodriving_on_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: "\u0363"
+      enum: {0: AUTODRIVING_START_REQUEST_NO_REQUEST, 1: AUTODRIVING_START_REQUEST_AUTODRING_START_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Autodriving_start_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: "\u0363"
+      enum: {0: AUTODRIVING_STOP_REQUEST_NO_REQUEST, 1: AUTODRIVING_STOP_REQUEST_AUTOIDRIVING_STOP_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Autodriving_stop_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  18fed0a4:
+    id: 18fed0a4
+    name: gw_acu08_18fed0a4
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 0
+      description: "ESC\u05B8\u02BE"
+      enum: {0: ESCIO_FALSE, 1: ESCIO_TRUE}
+      is_signed_var: false
+      len: 1
+      name: ESCIO
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 1
+      description: "ABS\u05B8\u02BE"
+      enum: {0: ABSIO_FALSE, 1: ABSIO_TRUE}
+      is_signed_var: false
+      len: 1
+      name: ABSIO
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 15
+      enum: {0: VEHSPDAVGDRVNRDV_VALID, 1: VEHSPDAVGDRVNRDV_INVALID}
+      is_signed_var: false
+      len: 1
+      name: VehSpdAvgDrvnRdV
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 14, description: "\xF3", is_signed_var: false, len: 15, name: VehSpdAvgDrvnRd,
+      offset: 0.0, order: motorola, physical_range: '[0|360]', physical_unit: km/h,
+      precision: 0.015625, type: double}
+    - bit: 31
+      enum: {0: ESPMCBRPRESSUREV_VALID, 1: ESPMCBRPRESSUREV_INVALID}
+      is_signed_var: false
+      len: 1
+      name: ESPMCBrPressureV
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 27, description: "ESP\u01B6\u0479", is_signed_var: false, len: 12, name: ESPMCBrPressure,
+      offset: 0.0, order: motorola, physical_range: '[0|409.5]', physical_unit: Bar,
+      precision: 0.1, type: double}
+    - bit: 40
+      description: "\u0479\u017A\u0427"
+      enum: {0: BUILD_PRE_AVAILABLE_VALID, 1: BUILD_PRE_AVAILABLE_INVALID}
+      is_signed_var: false
+      len: 1
+      name: Build_Pre_Available
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 41
+      description: "\u0479\u073C"
+      enum: {0: BUILD_PRE_ACTIVE_UNACTIVE, 1: BUILD_PRE_ACTIVE_ACTIVE}
+      is_signed_var: false
+      len: 1
+      name: Build_Pre_Active
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 42
+      description: EPB
+      enum: {0: EPB_REQUEST_NOREQUEST, 1: EPB_REQUEST_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: EPB_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 49, description: "\u046D", is_signed_var: false, len: 2, name: Ant_Bra_and_TC_Sta_HSRC,
+      offset: 0.0, order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: Ant_Bra_and_TC_Sta_HSCksm,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  18ff00fb:
+    id: 18ff00fb
+    name: acu_tbox1_18ff00fb
+    protocol_type: report
+    sender: ACU
+    vars:
+    - {bit: 47, is_signed_var: false, len: 8, name: reserve_ACUTBOX15, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 39, is_signed_var: false, len: 8, name: reserve_ACUTBOX14, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 31, is_signed_var: false, len: 8, name: reserve_ACUTBOX13, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 23, is_signed_var: false, len: 8, name: reserve_ACUTBOX12, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 15, is_signed_var: false, len: 8, name: reserve_ACUTBOX11, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 7, is_signed_var: false, len: 8, name: reserve_ACUTBOX1, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - bit: 55
+      description: Fault Code ACU
+      enum: {0: DTC_NORMAL, 352: DTC_BMSTIMEOUT, 353: DTC_BMS_SELF_REPORTED_FAULT,
+        354: DTC_CCSTIMEOUT, 355: DTC_CCS_SELF_REPORTED_FAULT, 514: DTC_GPSTIMEOUT,
+        515: DTC_GPS_POSITIONING_DRIFT, 516: DTC_GPS_HEADING_DRIFT, 517: DTC_WEAK_GPS_SIGNAL,
+        518: DTC_EPSTIMEOUT, 519: DTC_EPS_SELF_REPORTED_FAILURE, 520: DTC_MCUTIMEOUT,
+        521: DTC_MCU_SELF_REPORTED_FAULT, 528: DTC_EPBTIMEOUT, 529: DTC_EPB_SELF_REPORTED_FAULT,
+        530: DTC_EHBTIMEOUT, 531: DTC_EHB_SELF_REPORTED_FAULT, 532: DTC_BCMTIMEOUT,
+        533: DTC_BCM_SELF_REPORTED_FAILURE, 534: DTC_MCUFEEDBACKSPEED_IS_INCONSISTENT,
+        535: DTC_EPSINCONSISTENT_FEEDBACKSTEERING, 536: DTC_EHBFEEDBACK_INCONSISTENT_PARKING,
+        537: DTC_EPBFEEDBACK_INCONSISTENT_PARKING, 548: DTC_LIDAR_COMMUNICATION_TIMED_OUT,
+        549: DTC_CONVERGEDAWARETIMEOUT, 550: DTC_FRADARCOMMUNICATION_TIMEOUT, 551: DTC_LRADARCOMMUNICATION_TIMEOUT,
+        552: DTC_RRADARCOMMUNICATION_TIMEOUT, 553: DTC_FLSIDE_USSRADAR_TIMEOUT, 560: DTC_FL_USSRADAR_TIMEOUT,
+        561: DTC_FLMIDDLE_USSRADAR_TIMEOUT, 562: DTC_FRMIDDLE_USSRADAR_TIMEOUT, 563: DTC_FR_USSRADAR_TIMEOUT,
+        564: DTC_FRSIDE_USSRADAR_TIMEOUT, 565: DTC_RLSIDE_USSRADAR_TIMEOUT, 566: DTC_RL_USSRADAR_TIMEOUT,
+        567: DTC_RLMIDDLE_USSRADAR_TIMEOUT, 568: DTC_RRMIDDLE_USSRADAR_TIMEOUT, 569: DTC_RR_USSRADAR_TIMEOUT,
+        576: DTC_RRSIDE_USSRADAR_TIMEOUT, 577: DTC_BCAMERA_COMMUNICATION_TIMEOUT,
+        578: DTC_IMU_COMMUNICATION_TIMEOUT, 579: DTC_IFCU_COMMUNICATION_TIMEOUT}
+      is_signed_var: false
+      len: 8
+      name: DTC
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|255]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  c15a4d0:
+    id: c15a4d0
+    name: acu_gw01_c15a4d0
+    protocol_type: report
+    sender: ACU
+    vars:
+    - {bit: 63, is_signed_var: false, len: 8, name: Message_check_sum_ACU, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 55, is_signed_var: false, len: 4, name: Message_Counter_GW, offset: 0.0,
+      order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 7, description: "\u05EA", is_signed_var: false, len: 16, name: Expect_Steering_Ang,
+      offset: -720.0, order: motorola, physical_range: '[-720|720]', physical_unit: deg,
+      precision: 1.0, type: int}
+    - bit: 16
+      description: "\u0536\u02BB\u0123\u02BD\u05F4\u032C"
+      enum: {0: AUTO_DRIVE_MOD_STA_AUTODRIVE_MOD_OFF, 1: AUTO_DRIVE_MOD_STA_AUTODRIVE_MOD_ON}
+      is_signed_var: false
+      len: 1
+      name: Auto_Drive_Mod_Sta
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 17
+      description: "EPS\u05F4\u032C"
+      enum: {0: EPS_STATUS_ECU_ENTERS_STOP_MODE, 1: EPS_STATUS_ECU_ENTERS_WORKING_MODE}
+      is_signed_var: false
+      len: 1
+      name: EPS_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 18
+      description: "\u03BB"
+      enum: {0: SET_TO_MEDIAN_ECU_IS_NOT_CALIBRATED, 1: SET_TO_MEDIAN_ECU_CALIBRATES_POSITION_0_ANGLE}
+      is_signed_var: false
+      len: 1
+      name: Set_to_median
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 40
+      description: "\u0479\u05B8"
+      enum: {0: BUILD_PRE_REQUEST_NO_PRESSURE_REQUEST, 1: BUILD_PRE_REQUEST_BUILDING_PRESSURE_REQUEST}
+      is_signed_var: false
+      len: 1
+      name: Build_Pre_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 41
+      description: "\u0479\u05B8\u0427"
+      enum: {0: BUILD_PRE_REQUEST_STA_VALID, 1: BUILD_PRE_REQUEST_STA_INVALID}
+      is_signed_var: false
+      len: 1
+      name: Build_Pre_Request_Sta
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 39, description: "\u0479\u0676\u05B5", is_signed_var: false, len: 8, name: Build_Pre_Val,
+      offset: 0.0, order: motorola, physical_range: '[0|5]', physical_unit: m/s^2,
+      precision: 0.04, type: double}
+  c16a4d0:
+    id: c16a4d0
+    name: gw_acu05_c16a4d0
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 1
+      description: "\u03BB\u017A"
+      enum: {0: MCU_GEAR_IDLE, 1: MCU_GEAR_FORWARDDIRECTION, 2: MCU_GEAR_REVERSEDIRECTION,
+        3: MCU_GEAR_INVALID}
+      is_signed_var: false
+      len: 2
+      name: MCU_Gear
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: "\u05F4\u032C"
+      enum: {0: MCU_CONTROLL_MOD_MANUAL_DRIVING_MODE, 1: MCU_CONTROLL_MOD_AUTOPILOT_MODE}
+      is_signed_var: false
+      len: 1
+      name: MCU_Controll_mod
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "\u0324", is_signed_var: false, len: 8, name: MCU_Pedal_Depth,
+      offset: 0.0, order: motorola, physical_range: '[0|100]', physical_unit: '%',
+      precision: 0.4, type: double}
+    - bit: 17
+      description: "\u0639\u03F5\u023C"
+      enum: {0: BMS_POWBATFLTLEVEL_CLEAR, 1: BMS_POWBATFLTLEVEL_FLV1, 2: BMS_POWBATFLTLEVEL_FLV2,
+        3: BMS_POWBATFLTLEVEL_FLV3}
+      is_signed_var: false
+      len: 2
+      name: BMS_PowBatFltLevel
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, description: '', is_signed_var: false, len: 8, name: VCU_DTC, offset: 0.0,
+      order: motorola, physical_range: '[0|255]', physical_unit: '', precision: 1.0,
+      type: int}
+  c19a4d0:
+    id: c19a4d0
+    name: gw_acu06_c19a4d0
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 0
+      description: "\u05EA\u05F4\u032C"
+      enum: {0: MOTOR_RUN_ACTIVE_FALSE, 1: MOTOR_RUN_ACTIVE_TRUE}
+      is_signed_var: false
+      len: 1
+      name: Motor_Run_Active
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 2
+      description: "\u05EA\u05F4\u032C"
+      enum: {0: MOTOR_SPEED_STATUS_VALID, 1: MOTOR_SPEED_STATUS_RESERVED, 2: MOTOR_SPEED_STATUS_RESERVED_1,
+        3: MOTOR_SPEED_STATUS_INVALID}
+      is_signed_var: false
+      len: 2
+      name: Motor_Speed_Status
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "\u05EA", is_signed_var: false, len: 16, name: Motor_Speed,
+      offset: 0.0, order: motorola, physical_range: '[0|16383.75]', physical_unit: rpm,
+      precision: 1.0, type: double}
+    - {bit: 39, description: "\u02B5\u0164", is_signed_var: false, len: 16, name: MotorTrqActExtRng,
+      offset: -3200.0, order: motorola, physical_range: '[-3200|3353.5]', physical_unit: '',
+      precision: 0.1, type: double}
+    - {bit: 55, description: "\u02BB\u0531\u0164", is_signed_var: false, len: 16,
+      name: EngTrqDrRqdExtRng, offset: -3200.0, order: motorola, physical_range: '[-3200|3353.5]',
+      physical_unit: '', precision: 0.1, type: double}
+  cb9d0a4:
+    id: cb9d0a4
+    name: gw_acu09_cb9d0a4
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 7
+      enum: {0: WHLGRNDVLCTYLFTDRVNV_VALID, 1: WHLGRNDVLCTYLFTDRVNV_INVALID}
+      is_signed_var: false
+      len: 1
+      name: WhlGrndVlctyLftDrvnV
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 4, description: "\u05B6\u0535\u0676", is_signed_var: false, len: 13, name: WhlGrndVlctyLftDrvn,
+      offset: 0.0, order: motorola, physical_range: '[0|360]', physical_unit: km /
+        h, precision: 0.05625, type: double}
+    - bit: 23
+      enum: {0: WHLGRNDVLCTYRTDRVNV_VALID, 1: WHLGRNDVLCTYRTDRVNV_INVALID}
+      is_signed_var: false
+      len: 1
+      name: WhlGrndVlctyRtDrvnV
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 20, description: "\u05B6\u0535\u0676", is_signed_var: false, len: 13,
+      name: WhlGrndVlctyRtDrvn, offset: 0.0, order: motorola, physical_range: '[0|360]',
+      physical_unit: km / h, precision: 0.05625, type: double}
+    - {bit: 37, description: "\u01BD", is_signed_var: false, len: 13, name: AverageSpeed,
+      offset: 0.0, order: motorola, physical_range: '[0|360]', physical_unit: km /
+        h, precision: 0.05625, type: double}
+    - {bit: 49, description: "\u046D", is_signed_var: false, len: 2, name: DriWhlGrndVlctyRollCnt,
+      offset: 0.0, order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: DriWhlGrndVlctyCksm,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  cbdd0a4:
+    id: cbdd0a4
+    name: gw_acu11_cbdd0a4
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - bit: 39
+      description: ''
+      enum: {300: ESC_DTC_NO_FAILURE, 318: ESC_DTC_ESC_FAILURE, 319: ESC_DTC_ABS_FAILURE,
+        320: ESC_DTC_HYDRAULIC_PRESSURE_FAILURE}
+      is_signed_var: false
+      len: 8
+      name: ESC_DTC
+      offset: 300.0
+      order: motorola
+      physical_range: '[300|320]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, description: "\u0524\u0524\u0524\u0524\u0524\u0524\u0524\u0524", is_signed_var: false,
+      len: 8, name: reserve3, offset: 0.0, order: motorola, physical_range: '[0|255]',
+      physical_unit: '', precision: 1.0, type: int}
+    - {bit: 23, is_signed_var: false, len: 8, name: reserve2, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 15, is_signed_var: false, len: 8, name: reserve1, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 7, is_signed_var: false, len: 8, name: reserve, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+  cf00630:
+    id: cf00630
+    name: gw_acu13_cf00630
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - {bit: 21, description: "[-31,32]\u02BB\u03AA0\u05B5\u0CF5\u03AA\u04B2\u0CF5\u03AA",
+      is_signed_var: true, len: 6, name: Attached_Lane_Num, offset: 0.0, order: motorola,
+      physical_range: '[-32|31]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 31, description: times, is_signed_var: false, len: 8, name: Time_Remaining,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+    - {bit: 39, description: "\u0368\u05BE\uAFAD", is_signed_var: true, len: 32, name: Traffic_Light_Pos_Lon,
+      offset: 0.0, order: motorola, physical_range: '[-214.7483648|214.7483647]',
+      physical_unit: '', precision: 1.0e-07, type: double}
+    - bit: 12
+      description: "V2X\u0368\u0476\u05BE\u03BB"
+      enum: {0: V2X_FLAG_TRUE, 1: V2X_FLAG_FALSE}
+      is_signed_var: false
+      len: 1
+      name: V2X_Flag
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 11
+      description: "\u0368\u026B"
+      enum: {0: TRAFFIC_LIGHT_COLOR_RED, 1: TRAFFIC_LIGHT_COLOR_YELLOW, 2: TRAFFIC_LIGHT_COLOR_GREEN,
+        3: TRAFFIC_LIGHT_COLOR_BLACK_UNKONW}
+      is_signed_var: false
+      len: 2
+      name: Traffic_Light_Color
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 9
+      description: "\u0368"
+      enum: {0: TRAFFIC_LIGHT_TYP_STRAIGHT, 1: TRAFFIC_LIGHT_TYP_LEFT, 2: TRAFFIC_LIGHT_TYP_RIGHT,
+        3: TRAFFIC_LIGHT_TYP_U_TURN}
+      is_signed_var: false
+      len: 2
+      name: Traffic_Light_Typ
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      description: "\u0368\u01B1"
+      enum: {0: TRAFFIC_LIGHT_NUM_INVAID_VALUE, 1: TRAFFIC_LIGHT_NUM_1, 2: TRAFFIC_LIGHT_NUM_2,
+        3: TRAFFIC_LIGHT_NUM_3, 4: TRAFFIC_LIGHT_NUM_4, 5: TRAFFIC_LIGHT_NUM_5, 6: TRAFFIC_LIGHT_NUM_6,
+        7: TRAFFIC_LIGHT_NUM_7, 8: TRAFFIC_LIGHT_NUM_8, 9: TRAFFIC_LIGHT_NUM_9, 10: TRAFFIC_LIGHT_NUM_10,
+        11: TRAFFIC_LIGHT_NUM_11, 12: TRAFFIC_LIGHT_NUM_12, 13: TRAFFIC_LIGHT_NUM_13,
+        14: TRAFFIC_LIGHT_NUM_14, 15: TRAFFIC_LIGHT_NUM_15}
+      is_signed_var: false
+      len: 4
+      name: Traffic_Light_Num
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|15]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+  cf008fb:
+    id: cf008fb
+    name: acu_gw02_cf008fb
+    protocol_type: report
+    sender: ACU
+    vars:
+    - bit: 2
+      description: "\u03BB"
+      enum: {0: EXPECT_GEAR_VOID, 1: EXPECT_GEAR_R, 2: EXPECT_GEAR_VOID_1, 3: EXPECT_GEAR_VOID_2,
+        4: EXPECT_GEAR_D, 5: EXPECT_GEAR_VOID_3, 6: EXPECT_GEAR_VOID_4, 7: EXPECT_GEAR_NOT_CONTROL}
+      is_signed_var: false
+      len: 3
+      name: Expect_Gear
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|7]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 3
+      description: "\u0536\u02BB\u0123\u02BD\u05F4\u032C"
+      enum: {0: AUTO_DRIVE_MOD_STA_AUTODRIVE_MOD_OFF, 1: AUTO_DRIVE_MOD_STA_AUTODRIVE_MOD_ON}
+      is_signed_var: false
+      len: 1
+      name: Auto_Drive_Mod_Sta
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 4
+      description: "\u05EA\u01BF"
+      enum: {0: LEFT_SIGNAL_CONTROL_TURN_LEFT_TURN_OFF, 1: LEFT_SIGNAL_CONTROL_TURN_LEFT_TURN}
+      is_signed_var: false
+      len: 1
+      name: Left_signal_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 5
+      description: "\u05EA\u01BF"
+      enum: {0: RIGHT_SIGNAL_CONTROL_TURN_OFF_RIGHT_TURN, 1: RIGHT_SIGNAL_CONTROL_TURN_RIGHT_TURN}
+      is_signed_var: false
+      len: 1
+      name: Right_signal_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 7
+      description: "EPB\u05E4"
+      enum: {0: EPB_PARK_REQUEST_NOREQUEST, 1: EPB_PARK_REQUEST_RELEASEPARKBAAKE,
+        2: EPB_PARK_REQUEST_APPLYPARKBAAKE, 3: EPB_PARK_REQUEST_NOTUSED}
+      is_signed_var: false
+      len: 2
+      name: EPB_Park_Request
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|3]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 15, description: "\u01B6\u0479", is_signed_var: false, len: 8, name: BrakePressureReq,
+      offset: 0.0, order: motorola, physical_range: '[0|100]', physical_unit: '',
+      precision: 1.0, type: int}
+    - {bit: 23, description: "\u0324", is_signed_var: false, len: 8, name: Expect_Pedal_Depth,
+      offset: 0.0, order: motorola, physical_range: '[0|100]', physical_unit: '',
+      precision: 0.4, type: double}
+    - {bit: 31, description: ACU, is_signed_var: false, len: 8, name: ACU_Fault_Code,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+    - {bit: 39, description: "\u05EA", is_signed_var: false, len: 16, name: Expect_Steering_Angle,
+      offset: -780.0, order: motorola, physical_range: '[-780|779.9]', physical_unit: '',
+      precision: 0.1, type: double}
+    - bit: 48
+      description: "\u01BF"
+      enum: {0: REVERSING_LIGHT_CONTROL_TURN_OFF_THE_REVERSING_LIGHTS, 1: REVERSING_LIGHT_CONTROL_TURN_ON_THE_REVERSING_LIGHTS}
+      is_signed_var: false
+      len: 1
+      name: Reversing_light_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 49
+      description: "\u023F"
+      enum: {0: HORN_CONTROL_TURN_OFF_THE_HORN, 1: HORN_CONTROL_TURN_ON_THE_HORN}
+      is_signed_var: false
+      len: 1
+      name: Horn_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 50
+      description: "\u03A3\u057E"
+      enum: {0: EMERGENCY_HAZAD_WARNING_CONTROL_TURN_OFF_HAZARD_WARNING_LIGHTS, 1: EMERGENCY_HAZAD_WARNING_CONTROL_TURN_ON_HAZARD_WARNING_LIGHTS}
+      is_signed_var: false
+      len: 1
+      name: Emergency_hazad_warning_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - bit: 51
+      description: "\u01B6\u01BF"
+      enum: {0: BRAKING_CONTROL_TURN_BRAKE_LIGHR_OFF, 1: BRAKING_CONTROL_TURN_BRAKE_LIGHT_ON}
+      is_signed_var: false
+      len: 1
+      name: Braking_control
+      offset: 0.0
+      order: motorola
+      physical_range: '[0|1]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 55, description: '', is_signed_var: false, len: 4, name: Message_Counter_ACU,
+      offset: 0.0, order: motorola, physical_range: '[0|3]', physical_unit: '', precision: 1.0,
+      type: int}
+    - {bit: 63, description: "\u0423", is_signed_var: false, len: 8, name: Message_check_sum_ACU,
+      offset: 0.0, order: motorola, physical_range: '[0|255]', physical_unit: '',
+      precision: 1.0, type: int}
+  cff83aa:
+    id: cff83aa
+    name: gw_acu12_cff83aa
+    protocol_type: control
+    sender: AP1_GW
+    vars:
+    - {bit: 47, description: "\u0524\u0524\u0524\u0524\u0524\u0524\u0524\u0524", is_signed_var: false,
+      len: 4, name: reserve3, offset: 0.0, order: motorola, physical_range: '[0|15]',
+      physical_unit: '', precision: 1.0, type: int}
+    - {bit: 39, is_signed_var: false, len: 8, name: reserve2, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - bit: 43
+      description: EPS
+      enum: {300: EPS_DTC_ECU_DETECTED_A_FAILURE, 301: EPS_DTC_ECU_ISSUES_A_WARNING,
+        302: EPS_DTC_MOSFET_OVER_TEMPERATURE_90, 303: EPS_DTC_EPS_COMMUNICATION_TIMEOUT,
+        315: EPS_DTC_NO_FAILIURE}
+      is_signed_var: false
+      len: 4
+      name: EPS_DTC
+      offset: 300.0
+      order: motorola
+      physical_range: '[300|303]'
+      physical_unit: ''
+      precision: 1.0
+      type: enum
+    - {bit: 31, is_signed_var: false, len: 8, name: reserve1, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}
+    - {bit: 15, description: "\u01F0\u01F6\u05B5", is_signed_var: false, len: 16,
+      name: Wheel_Angle_Sig, offset: 0.0, order: motorola, physical_range: '[0|65535]',
+      physical_unit: deg, precision: 1.0, type: int}
+    - {bit: 7, is_signed_var: false, len: 8, name: reserve, offset: 0.0, order: motorola,
+      physical_range: '[0|255]', physical_unit: '', precision: 1.0, type: int}

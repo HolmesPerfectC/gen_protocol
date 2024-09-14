@@ -1,0 +1,9 @@
+dbc_file: acu-gw.dbc
+protocol_conf: dbc.yml
+car_type: gw
+sender_list: []
+sender: AP1_GW
+black_list: []
+
+output_dir: outTest/
+
