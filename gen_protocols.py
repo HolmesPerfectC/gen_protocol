@@ -115,11 +115,19 @@ def gen_report_value_offset_precision(var, protocol):
         doc string:
     """
     impl = ""
-    if var["is_signed_var"]:
-        fmt = "\n  x <<= %d;\n  x >>= %d;\n"
-        # x is an int32_t var
-        shift_bit = 32 - var["len"]
-        impl = impl + fmt % (shift_bit, shift_bit)
+    if var["len"] <= 32:
+        if var["is_signed_var"]:
+            fmt = "\n  x <<= %d;\n  x >>= %d;\n"
+            # x is an int32_t var
+            shift_bit = 32 - var["len"]
+            impl = impl + fmt % (shift_bit, shift_bit)
+    elif var["len"] > 32 and var["len"] <= 64:
+        if var["is_signed_var"]:
+            fmt = "\n  x <<= %d;\n  x >>= %d;\n"
+            # x is an int32_t var
+            shift_bit = 64 - var["len"]
+            impl = impl + fmt % (shift_bit, shift_bit)
+
 
     returntype = var["type"]
     if var["type"] == "enum":
@@ -146,19 +154,35 @@ def gen_parse_value_impl(var, byte_info):
     impl = ""
     fmt = "\n  Byte t%d(bytes + %d);\n"
     shift_bit = 0
-    for i in range(0, len(byte_info)):
-        info = byte_info[i]
-        impl = impl + fmt % (i, info["byte"])
-        if i == 0:
-            impl = impl + "  int32_t x = t%d.get_byte(%d, %d);\n" %\
-                (i, info["start_bit"], info["len"])
-        elif i == 1:
-            impl = impl + "  int32_t t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
-                (i, info["start_bit"], info["len"], info["len"])
-        else:
-            impl = impl + "  t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
-                (i, info["start_bit"], info["len"], info["len"])
-        shift_bit = shift_bit + info["len"]
+    if var["len"] <= 32:
+        for i in range(0, len(byte_info)):
+            info = byte_info[i]
+            impl = impl + fmt % (i, info["byte"])
+            if i == 0:
+                impl = impl + "  int32_t x = t%d.get_byte(%d, %d);\n" %\
+                    (i, info["start_bit"], info["len"])
+            elif i == 1:
+                impl = impl + "  int32_t t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
+                    (i, info["start_bit"], info["len"], info["len"])
+            else:
+                impl = impl + "  t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
+                    (i, info["start_bit"], info["len"], info["len"])
+            shift_bit = shift_bit + info["len"]
+    if var["len"] > 32 and var["len"] <= 64:
+        for i in range(0, len(byte_info)):
+            info = byte_info[i]
+            impl = impl + fmt % (i, info["byte"])
+            if i == 0:
+                impl = impl + "  int64_t x = t%d.get_byte(%d, %d);\n" %\
+                    (i, info["start_bit"], info["len"])
+            elif i == 1:
+                impl = impl + "  int64_t t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
+                    (i, info["start_bit"], info["len"], info["len"])
+            else:
+                impl = impl + "  t = t%d.get_byte(%d, %d);\n  x <<= %d;\n  x |= t;\n" %\
+                    (i, info["start_bit"], info["len"], info["len"])
+            shift_bit = shift_bit + info["len"]
+
     return impl
 
 

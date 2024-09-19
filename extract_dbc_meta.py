@@ -122,7 +122,7 @@ def extract_dbc_meta(dbc_file, out_file, car_type, black_list, sender_list,
                         var_info = extract_var_info(items)
                         print(var_info["name"], var_info["len"])
                         # current we can't process than 4 byte value
-                        if var_info["len"] <= 32:
+                        if var_info["len"] <= 64:
                             protocol["vars"].append(var_info)
                 else:
                     in_protocol = False
